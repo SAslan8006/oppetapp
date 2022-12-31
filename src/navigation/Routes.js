@@ -19,10 +19,9 @@ const Drawer = createDrawerNavigator();
 
 
 
-
 const Routes = () => {
   return (
-    <Text>Opet App Routes</Text>
+    <Text>Opet App  Routes</Text>
   )
 }
 
