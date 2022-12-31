@@ -8,15 +8,16 @@ import {FlatListSlider} from 'react-native-flatlist-slider';
 const images = [
   {
     image:
-      'https://lh3.googleusercontent.com/proxy/Qvgz-dOKvMLPgIJbamrc5quk89QN1a2GLXzqwvuh7NjHrvt7lVOd9QDFfoO0P-5sG9tqNSkG8BXPyaoF5b6PlB0Qr0Wi6Aa_QNiwVyC4TVAY',
+      'https://optasittanima.com/uploads/images/upload/9165-slider_1.jpg',
     desc: 'Title 1',
   },
   {
     image:
-      'https://lh3.googleusercontent.com/proxy/Qvgz-dOKvMLPgIJbamrc5quk89QN1a2GLXzqwvuh7NjHrvt7lVOd9QDFfoO0P-5sG9tqNSkG8BXPyaoF5b6PlB0Qr0Wi6Aa_QNiwVyC4TVAY',
+      'https://carmedya.com/wp-content/uploads/2020/06/1591393341_OPET.jpg',
     desc: 'Title 2',
   },
 ];
+
 const HomeScreen = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#0271cd'}}>

@@ -128,7 +128,7 @@ const MyDrawer = () => {
       drawerStyle={{
         backgroundColor: '#0271cd',
       }}
-      drawerContentOptions={{
+      screenOptions={{
         activeTintColor: '#ff0',
         inactiveTintColor: '#fff',
         headerStyle: {
