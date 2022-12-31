@@ -1,22 +1,32 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
-import { deviceHeight } from '../utils/dimensions';
+import {View, Text, Image, ScrollView} from 'react-native';
+import {deviceHeight, deviceWidth} from '../utils/dimensions';
+import Faded from '../utils/faded';
 
-const KampanyaDetayScreen = ({route, navigation}) => {
-    const item = route.params;
-    return (
-        <View style={{width: '100%', paddingVertical: 0, backgroundColor: '#f0f8ff' , height: '100%',
-        paddingHorizontal: 0 ,alignItems: 'center', 
-    }}>
-        <Image 
-        style={{resizeMode: 'stretch', width: '100%', height: deviceHeight/2}}
+const KampanyaDetayScreen = ({route}) => {
+  const item = route.params;
+  return (
+    <View
+      style={{
+        width: '100%',
+        alignItems: 'center',
+        paddingVertical: 0,
+        paddingHorizontal: 0,
+      }}>
+      <Image
+        style={{resizeMode: 'cover', width: '100%', height: deviceHeight / 3}}
         source={{uri: item.image}}
-        />
+      />
+      <View style={{position: 'absolute', top: 0, width: '100%'}}>
+        <Faded height={deviceHeight / 4} color="#0070d4" direction="bottom" />
+      </View>
+      <ScrollView>
         <Text style={{fontSize: 28}}>{item.title}</Text>
-        <Text style={{fontSize: 20}}>{item.subtitle}</Text>
-        <Text style={{fontSize: 16}}>{item.detail}</Text>
-     </View>
-    );
+
+        <Text style={{fontSize: 18}}>{item.detail}</Text>
+      </ScrollView>
+    </View>
+  );
 };
 
 export default KampanyaDetayScreen;
