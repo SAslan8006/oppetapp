@@ -160,6 +160,11 @@ android {
                 }
             }
         }
+
+        packagingOptions {
+		exclude 'META-INF/mimetypes.default'
+		exclude 'META-INF/mailcap.default'
+	    }
     }
 
     if (isNewArchitectureEnabled()) {

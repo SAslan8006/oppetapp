@@ -1,16 +1,9 @@
-import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  SafeAreaView,
-  ScrollView,
-  TextInput,
-  TouchableOpacity,
-  Picker,
-} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, SafeAreaView, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 
-import {CheckBox} from 'react-native-elements';
+import { CheckBox } from '@rneui/base';
 import RNSmtpMailer from 'react-native-smtp-mailer';
+import { Picker } from '@react-native-picker/picker';
 
 const IletisimFormuScreen = () => {
   const [adi, setAdi] = useState('');
@@ -65,9 +58,7 @@ const IletisimFormuScreen = () => {
       if (text.length == 10) {
         setTelefonValid(true);
       } else {
-        setTelefonValidMesaj(
-          'Telefon numaranızı başına 0 Koymadan 10 heneli olarak yazınız',
-        );
+        setTelefonValidMesaj('Telefon numaranızı başına 0 Koymadan 10 heneli olarak yazınız');
         setTelefonValid(false);
       }
     } else {
@@ -96,13 +87,13 @@ const IletisimFormuScreen = () => {
 
   const mailGonder = async () => {
     await RNSmtpMailer.sendMail({
-      mailhost: 'smtp.yandex.com.tr',
+      mailhost: "smtp.epostamax.com",
       port: '465',
       ssl: true, // optional. if false, then TLS is enabled. Its true by default in android. In iOS TLS/SSL is determined automatically, and this field doesn't affect anything
-      username: 'test@codeks.org',
-      password: '123456A+',
-      from: 'test@codeks.org',
-      fromName: 'Mehmet Kasım Sular', // optional
+      username: 'pge93ltiuk@epostamax.com',
+      password: 'IGOEASM23545',
+      from: 'pge93ltiuk@epostamax.com',
+      fromName: "Süleyman Aslan",
       recipients: email,
       subject: 'Opet App ',
       htmlBody: '<h1> Opet App  | </h1><p>mesaj</p>',
@@ -112,9 +103,9 @@ const IletisimFormuScreen = () => {
   };
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#dddddd'}}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#dddddd' }}>
       <ScrollView>
-        <View style={{margin: 20}}>
+        <View style={{ margin: 20 }}>
           <TextInput
             value={adi}
             onChangeText={text => checkAdi(text)}
@@ -130,10 +121,8 @@ const IletisimFormuScreen = () => {
             secureTextEntry={false}
           />
           {adiValid == false ? (
-            <View style={{alignItems: 'center', marginBottom: 20}}>
-              <Text style={{color: '#ff0000', fontSize: 12}}>
-                {adiValidMesaj}
-              </Text>
+            <View style={{ alignItems: 'center', marginBottom: 20 }}>
+              <Text style={{ color: '#ff0000', fontSize: 12 }}>{adiValidMesaj}</Text>
             </View>
           ) : (
             <></>
@@ -153,10 +142,8 @@ const IletisimFormuScreen = () => {
             keyboardType="email-address"
           />
           {emailValid == false ? (
-            <View style={{alignItems: 'center', marginBottom: 20}}>
-              <Text style={{color: '#ff0000', fontSize: 12}}>
-                {emailValidMesaj}
-              </Text>
+            <View style={{ alignItems: 'center', marginBottom: 20 }}>
+              <Text style={{ color: '#ff0000', fontSize: 12 }}>{emailValidMesaj}</Text>
             </View>
           ) : (
             <></>
@@ -177,21 +164,14 @@ const IletisimFormuScreen = () => {
             keyboardType="phone-pad"
           />
           {telefonValid == false ? (
-            <View style={{alignItems: 'center', marginBottom: 20}}>
-              <Text style={{color: '#ff0000', fontSize: 12}}>
-                {telefonValidMesaj}
-              </Text>
+            <View style={{ alignItems: 'center', marginBottom: 20 }}>
+              <Text style={{ color: '#ff0000', fontSize: 12 }}>{telefonValidMesaj}</Text>
             </View>
           ) : (
             <></>
           )}
-          <View
-            style={{backgroundColor: '#fff', width: '100%', borderRadius: 30}}>
-            <Picker
-              placeholder="Konu Seçiniz"
-              selectedValue={konu}
-              style={{height: 50, width: 150}}
-              onValueChange={(itemValue, itemIndex) => checkKonu(itemValue)}>
+          <View style={{ backgroundColor: '#fff', width: '100%', borderRadius: 30 }}>
+            <Picker placeholder="Konu Seçiniz" selectedValue={konu} style={{ height: 50, width: 150 }} onValueChange={(itemValue, itemIndex) => checkKonu(itemValue)}>
               <Picker.Item label="İstek" value="İstek" />
               <Picker.Item label="Şikayet" value="Şikayet" />
               <Picker.Item label="Öneri" value="Öneri" />
@@ -199,10 +179,8 @@ const IletisimFormuScreen = () => {
           </View>
 
           {konuValid == false ? (
-            <View style={{alignItems: 'center', marginBottom: 20}}>
-              <Text style={{color: '#ff0000', fontSize: 12}}>
-                {konuValidMesaj}
-              </Text>
+            <View style={{ alignItems: 'center', marginBottom: 20 }}>
+              <Text style={{ color: '#ff0000', fontSize: 12 }}>{konuValidMesaj}</Text>
             </View>
           ) : (
             <></>
@@ -217,6 +195,7 @@ const IletisimFormuScreen = () => {
               paddingLeft: 20,
               marginBottom: 10,
               height: 160,
+              marginTop:10
             }}
             placeholder="Mesajınız"
             fontSize={18}
@@ -224,45 +203,27 @@ const IletisimFormuScreen = () => {
             numberOfLines={4}
           />
           {mesajValid == false ? (
-            <View style={{alignItems: 'center', marginBottom: 20}}>
-              <Text style={{color: '#ff0000', fontSize: 12}}>
-                {mesajValidMesaj}
-              </Text>
+            <View style={{ alignItems: 'center', marginBottom: 20 }}>
+              <Text style={{ color: '#ff0000', fontSize: 12 }}>{mesajValidMesaj}</Text>
             </View>
           ) : (
             <></>
           )}
-          <CheckBox
-            onPress={() => setSozlesme(!sozlesme)}
-            title="Yukarıdaki bilgilerin doğruluğunu onaylıyorum"
-            checked={sozlesme}
-          />
+          <CheckBox onPress={() => setSozlesme(!sozlesme)} title="Yukarıdaki bilgilerin doğruluğunu onaylıyorum" checked={sozlesme} />
 
           <TouchableOpacity
             onPress={() => mailGonder()}
-            disabled={
-              sozlesme &&
-              adiValid &&
-              emailValid &&
-              telefonValid &&
-              konuValid &&
-              mesajValid
-                ? false
-                : true
-            }
+            disabled={sozlesme && adiValid && emailValid && telefonValid && konuValid && mesajValid ? false : true}
             style={{
               alignItems: 'center',
               justifyContent: 'center',
-              backgroundColor:
-                sozlesme && adiValid && emailValid && telefonValid && mesajValid
-                  ? '#0070d4'
-                  : '#888',
+              backgroundColor: sozlesme && adiValid && emailValid && telefonValid && mesajValid ? '#0070d4' : '#888',
               borderRadius: 30,
               paddingLeft: 20,
               marginVertical: 10,
               height: 60,
             }}>
-            <Text style={{color: '#ffffff', fontSize: 24}}>Gönder</Text>
+            <Text style={{ color: '#ffffff', fontSize: 24 }}>Gönder</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>

@@ -32,7 +32,7 @@ const HomeScreen = ({navigation}) => {
             timer={5000}
             onPress={item => alert(JSON.stringify(item))}
             contentContainerStyle={{paddingHorizontal: 0}}
-            indicatorContainerStyle={{position: 'absolute', top: 10}}
+            indicatorContainerStyle={{position: 'absolute', top: 0}}
             indicatorActiveColor={'#e9bc18'}
             indicatorInActiveColor={'#ffffff'}
             indicatorActiveWidth={30}
@@ -111,7 +111,7 @@ const HomeScreen = ({navigation}) => {
           }}>
           <TouchableOpacity
             style={{flexDirection: 'row'}}
-            onPress={() => navigation.navigate('KampanyaScreen')}>
+            onPress={() => navigation.navigate('KampanyaScreen1')}>
             <View style={{flex: 1}}>
               <Text style={{color: '#fff', fontSize: 18}}>KAMPANYALAR</Text>
             </View>
